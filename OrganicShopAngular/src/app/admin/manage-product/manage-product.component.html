@@ -1,0 +1,47 @@
+<div class="paddingtop">
+<div class="row paddingtop">
+<div class="col-md-6">
+<form  (ngSubmit)="Products(data.value)" #data="ngForm" >
+    <div class="form-group">
+      <label for="ProductName">Product Name</label>
+        <input type="text" #title="ngModel" [(ngModel)]="product.ProductName" name="ProductName" id="ProductName" class="form-control">
+      </div>
+    
+      <div class="form-group">
+          <label for="Price"> Price</label>
+        <div class="input-group">
+        <span class="input-group-addon">$</span>      
+            <input type="number"  #price="ngModel" [(ngModel)]="product.Price" name="Price" id="Price" class="form-control">
+          </div>
+          </div>
+    
+    <div class="form-group"><label for="Category">Category</label>
+      <select name="Category" #category="ngModel" [(ngModel)]="product.Category"  id="Category" class="form-control">
+      <option value="Dairy Product">Dairy Product </option>
+      <option value="Food Product">Food Product</option>
+      <option value="Meat Product">Meat Product</option>
+    </select></div>
+       <input type="hidden" [(ngModel)]="product.ProductId" name="ProductId" id="ProductId">  
+    
+          <div class="form-group">
+              <label for="ImageURL"> Image- URL</label>
+                <input type="text" #Image="ngModel" [(ngModel)]="product.ImageURL" name="ImageURL" id="ImageURL" class="form-control">
+              </div>
+               <button class="btn btn-primary">{{submitbuttonText}}</button>
+
+               <button *ngIf="delete" class="btn btn-primary" (click)="DeleteProduct()" >Delete</button>
+    
+    </form>
+</div>
+<div class="col-md-6">
+    <div class="card" style="width: 35rem;" *ngIf="title.value">
+            <img class="card-img-top" *ngIf="Image.value" [src]="Image.value" alt="Card image cap">
+            <div class="card-body">
+              <h3 class="card-title">{{title.value}}</h3>
+              <h5 class="card-title">{{category.value}}</h5>
+              <p class="card-text">{{price.value | currency:'INR'}}</p>
+            </div>
+     </div>
+</div>
+</div>
+        

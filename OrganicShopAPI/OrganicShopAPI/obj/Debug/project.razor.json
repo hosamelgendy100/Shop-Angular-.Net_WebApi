@@ -1,0 +1,19 @@
+{
+  "FilePath": "f:\\WEB TEMPLATES\\.Net Templates\\.Net E-Commerce\\OrganicShop-Angular-WebAPI-develop\\OrganicShop-Angular-WebAPI-develop\\OrganicShopAPI\\OrganicShopAPI\\OrganicShopAPI.csproj",
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  },
+  "ProjectWorkspaceState": {
+    "TagHelpers": [],
+    "CSharpLanguageVersion": 703
+  },
+  "RootNamespace": null,
+  "Documents": [],
+  "SerializationFormat": "0.2"
+}

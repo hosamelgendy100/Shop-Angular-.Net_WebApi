@@ -1,0 +1,38 @@
+
+<div class="paddingtop">
+<button class="btn btn-primary body" routerLink="/admin/manageproduct"> Create New Product</button>
+<br>
+<h1>{{ title }}</h1>
+<h3>Your current selection: {{ currentSelection$ | async }}</h3>
+
+<ng2-md-datatable selectable="true">
+  <ng2-md-datatable-header>
+    <ng2-md-datatable-column sortableValue="ProductId" numeric>Id</ng2-md-datatable-column>
+    <ng2-md-datatable-column sortableValue="ProductName">Name</ng2-md-datatable-column>
+    <ng2-md-datatable-column sortableValue="Price">Prize</ng2-md-datatable-column>
+    <ng2-md-datatable-column sortableValue="Category">Category</ng2-md-datatable-column>
+    <ng2-md-datatable-column></ng2-md-datatable-column>
+  </ng2-md-datatable-header>
+  <tbody>
+    <ng2-md-datatable-row *ngFor="let product of Products$ | async" [selectableValue]="product.ProductId">
+      <td class="numeric">{{ product.ProductId }}</td>
+      <td>{{ product.ProductName }}</td>
+      <td>{{ product.Price }}</td>
+      <td>{{ product.Category }}</td>
+      <td><a [routerLink]="['/admin/manageproduct/']"[queryParams]="{id: product.ProductId}" >Edit</a>
+        <a [routerLink]="['/admin/manageproduct/']"[queryParams]="{id: product.ProductId}" >Delete</a>
+      </td>
+    </ng2-md-datatable-row>
+  </tbody>
+</ng2-md-datatable>
+
+<button mat-mini-fab class="demoApp__shuffle" color="accent" aria-label="Shuffle data!" (click)="shuffleData()">
+  <mat-icon aria-label="Shuffle data!">shuffle</mat-icon>
+</button>
+
+<ng2-md-datatable-pagination 
+  [currentPage]="currentPagination.currentPage" 
+  [itemsPerPage]="currentPagination.itemsPerPage"
+  [itemsCount]="currentPagination.totalCount" 
+  [itemsPerPageChoices]="[2, 5, 10, 15]"></ng2-md-datatable-pagination>
+</div>
